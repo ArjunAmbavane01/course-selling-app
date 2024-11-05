@@ -70,7 +70,7 @@ router.post('signin',async (req,res)=>{
         if(admin){
             const isPassTrue = bcrypt.compare(password,admin.password);
             if(isPassTrue){
-                const token = jwt.sign({user:admin.email},process.env.JWT_SECRETKEY);
+                const token = jwt.sign({user:admin[_id]},process.env.JWT_SECRETKEY);
                 return res.status(200).json({
                     type:"success",
                     message:"User Signin Successfull",
